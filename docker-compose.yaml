@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  db:
+    image: mysql:8
+    container_name: obmennik
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: obmennik_db
+      MYSQL_USER: diazzzu
+      MYSQL_PASSWORD: pass1234
+    volumes:
+      - my_data_volume:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    expose:
+      - "3306"
+
+volumes:
+  my_data_volume:
